@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../button/Button';
+import classes from './events-search.module.css';
 const months = [
   'January',
   'February',
@@ -16,16 +17,16 @@ const months = [
 ];
 const SearchEvents = () => {
   return (
-    <form>
-      <div>
-        <div>
+    <form className={classes.form}>
+      <div className={classes.controls}>
+        <div className={classes.control}>
           <label htmlFor='year'>Year</label>
           <select id='year'>
             <option value='2021'>2021</option>
             <option value='2022'>2022</option>
           </select>
         </div>
-        <div>
+        <div className={classes.control}>
           <label htmlFor='month'></label>
           <select id='month'>
             {months.map((month, idx) => (
@@ -36,7 +37,7 @@ const SearchEvents = () => {
           </select>
         </div>
       </div>
-      <Button link >Find Events</Button>
+      <Button link>Find Events</Button>
     </form>
   );
 };
