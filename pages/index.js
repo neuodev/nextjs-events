@@ -18,8 +18,8 @@ export async function getStaticProps() {
     props: {
       featuredEvents: events,
     },
-    
-    revalidate: 10,
+
+    revalidate: 1800,
   };
 }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import EventList from '../../../components/events/EventList';
 import { getFilteredEvents } from '../../../helpers/api-utils';
 const FilterEvents = ({ events }) => {
