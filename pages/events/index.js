@@ -2,9 +2,13 @@ import React from 'react';
 import { getAllEvents } from '../../dummy-data';
 import EventList from '../../components/events/EventList';
 import SearchEvents from '../../components/events/events-search';
+import { useRouter } from 'next/router';
 
 const Events = ({ events }) => {
+  const router = useRouter();
+
   if (!events) return <h1>Loading ...</h1>;
+  
   return (
     <div>
       <SearchEvents />
