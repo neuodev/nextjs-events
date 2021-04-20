@@ -19,4 +19,13 @@ const FilterEvents = () => {
   );
 };
 
+export async function getStaticProps({ params }) {
+  console.log(params);
+  return {
+    props: {
+      events: [],
+    },
+  };
+}
+
 export default FilterEvents;
