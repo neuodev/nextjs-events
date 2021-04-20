@@ -2,6 +2,7 @@ import React from 'react';
 import { getFilteredEvents } from '../../../dummy-data';
 import { useRouter } from 'next/router';
 import EventList from '../../../components/events/EventList';
+import { getAllEvents } from '../../../helpers/api-utils';
 const FilterEvents = () => {
   const router = useRouter();
   const query = router.query.slug;
@@ -20,11 +21,28 @@ const FilterEvents = () => {
 };
 
 export async function getStaticProps({ params }) {
-  console.log(params);
+
   return {
     props: {
       events: [],
     },
+  };
+}
+
+export async function getStaticPaths() {
+  let paths = [];
+  const events = await getAllEvents();
+  for (let event of events) {
+    const date = new Date(event.date);
+    paths.push({
+      params: {
+        slug: [date.getFullYear(), date.getMonth()],
+      },
+    });
+  }
+  return {
+    paths,
+    fallback: false,
   };
 }
 
