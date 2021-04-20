@@ -5,7 +5,7 @@ import EventContent from '../../components/event-detail/event-content';
 import { getAllEvents, getEventById } from '../../helpers/api-utils.js';
 const EventPage = ({ event }) => {
   if (!event) {
-    return <p>Event Not Found</p>;
+    return <p className='center'>Loading</p>;
   }
   return (
     <div>
@@ -28,6 +28,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { event },
+    revalidate: 30,
   };
 }
 
