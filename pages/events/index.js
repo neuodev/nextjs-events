@@ -4,7 +4,7 @@ import EventList from '../../components/events/EventList';
 import SearchEvents from '../../components/events/events-search';
 
 const Events = ({ events }) => {
-  if (!events) return <h1>Loading</h1>;
+  if (!events) return <h1>Loading ...</h1>;
   return (
     <div>
       <SearchEvents />
